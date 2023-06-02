@@ -84,28 +84,11 @@
                     }, currentSlide != 2 ? 5000 : 7000);
             });
         }
-        
+
         function showSlide(index) {
             if (currentSlide >= slides.length) {
                 return;
             }
-
-            // Hide all slides
-            // for (let slide of slides) {
-            //     slide.classList.remove("fade");
-            // }
-
-            // // Show current slide
-            // slides[currentSlide].classList.add("fade");
-            // // Show text on third slide
-            // if (currentSlide === 1) {
-            //     const lines = document.querySelectorAll(".text-container p");
-            //     lines.forEach((line, index) => {
-            //     setTimeout(() => {
-            //         line.style.opacity = 1;
-            //     }, 1000 * (index + 1));
-            //     });
-            // }
             const removePromises = Array.from(slides).map((slide) => {
                     return new Promise((resolve) => {
                         slide.classList.remove("fade");
