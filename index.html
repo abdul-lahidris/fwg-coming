@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>FAWGIRI: Coming soon...</title>
+    <link rel="icon" href="np_Fawgiri Mark(AquaBlue).png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <video muted>
+                <source src="Fawgiri Logo Animation - Black Bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- <div class="slide fade">
+            <h1 class="center-vh">Vertically and Horizontally Centered Text</h1>
+        </div> -->
+        <div class="slide fade">
+            <div class="text-container">
+                <p class="line-1">An innovation company,</p>
+                <p class="line-2">A startup,</p>
+                <p class="line-3 aqua-blue">Talent-focused Company,</p>
+                <p class="line-4">An execution powerhouse.</p>
+                <!-- <p class="line-5">A company of the future.</p> -->
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="center-vh center-contents">
+                <img src="np_Fawgiri Mark(AquaBlue).png" width="100px" alt="Logo"/>
+                <h1 class="coming-soon">Coming soon...</h1>
+                <a href="mailto:hello@gawgiri.com">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    hello@fawgiri.com
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer style="text-align: center;">&copy;2023</footer>
+
+
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        let currentSlide = 0;
+        for (let slide of slides) {
+                slide.classList.remove("fade");
+            }
+        slides[currentSlide].classList.add("fade");
+
+        console.log("Current slide", currentSlide);
+
+        if (currentSlide === 0) {
+            // Check if video on the first slide has ended
+                const video = document.querySelector(".slide video");
+                video.play();
+                console.log("video playing");
+                video.addEventListener("ended", () => {
+                    console.log("video ended");
+                    currentSlide++;
+                    //start show
+                    showSlide(currentSlide)
+                    // Auto-advance to next slide
+                    var slideShow = setInterval(() => {
+                        currentSlide++;
+                    showSlide(currentSlide);
+
+                    if (currentSlide >= slides.length - 1) {
+                        clearInterval(slideShow);
+                    }
+                    }, 5000);
+            });
+        }
+        function showSlide(index) {
+            if (currentSlide >= slides.length) {
+                return;
+            }
+
+            // Hide all slides
+            for (let slide of slides) {
+                slide.classList.remove("fade");
+            }
+
+            // Show current slide
+            slides[currentSlide].classList.add("fade");
+            // Show text on third slide
+            if (currentSlide === 1) {
+                const lines = document.querySelectorAll(".text-container p");
+                lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.style.opacity = 1;
+                }, 1000 * (index + 1));
+                });
+            }
+        }
+
+        // Show first slide
+        // showSlide(0);
+
+
+
+
+    </script>
+</body>
+
+</html>

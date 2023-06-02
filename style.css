@@ -1,0 +1,250 @@
+:root {
+    --aqua: #34D4D9;
+    --white: #ffffff;
+    }
+    @font-face {
+        font-family: 'ArticulatCF';
+        src: url('ArticulatCF-Normal.ttf') format('truetype');
+        /* Additional font properties */
+        font-weight: normal;
+        font-style: normal;
+    }
+    body{
+        background-color: black;
+        font-family: 'ArticulatCF', sans-serif;
+    }
+    footer{
+        color: var(--aqua);
+    }
+    .slideshow-container {
+        position: relative;
+        height: 90vh;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        color: white;
+    }
+
+    .slide.fade {
+        opacity: 1;
+    }
+
+    .slide video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+
+    .text-container {
+        /* position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); */
+        line-height: 0rem;
+        padding-top: 40px;
+    }
+    .center-contents{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .center-vh{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .text-container p {
+        font-size: clamp(70px, 4rem, 200px);
+        font-weight: 700;
+        /* line-height: 1.0; */
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        /* animation: fade-in 1s forwards; */
+        margin-left: 1em;
+    }
+
+    .coming-soon{
+        font-size: clamp(40px, 4rem, 200px);
+        font-weight: 700;
+        /* line-height: 1.0; */
+        opacity: 0;
+        /* transition: opacity 1s ease-in-out; */
+        animation: fade-in 1s forwards;
+        /* margin-left: 1em; */
+    }
+
+    .text-container .line-1 {
+        animation-delay: 1s;
+    }
+
+    .text-container .line-2 {
+        animation-delay: 2s;
+    }
+
+    .text-container .line-3 {
+        animation-delay: 3s;
+    }
+
+    .text-container .line-4 {
+        animation-delay: 4s;
+    }
+
+    .text-container .line-5 {
+        animation-delay: 5s;
+    }
+    .aqua-blue{
+        color: var(--aqua);
+    }
+    @media only screen and (max-width: 500px) {
+        .text-container {
+            padding-top: 100px !important;
+        }
+    }
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+/* Button */
+a {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    /* margin: 40px 0; */
+    color: var(--aqua);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    /* margin-right: 50px; */
+
+}
+
+a:hover {
+    background: var(--aqua);
+    color: #050801;
+    box-shadow: 0 0 5px var(--aqua),
+        0 0 25px var(--aqua),
+        0 0 50px var(--aqua),
+        0 0 200px var(--aqua);
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+a:nth-child(1) {
+    filter: hue-rotate(270deg);
+}
+
+a:nth-child(2) {
+    filter: hue-rotate(110deg);
+}
+
+a span {
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--aqua));
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--aqua));
+    animation: animate2 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes animate2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+a span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--aqua));
+    animation: animate3 2s linear infinite;
+    animation-delay: 1.0s;
+}
+
+@keyframes animate3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+
+a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, var(--aqua));
+    animation: animate4 2s linear infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
