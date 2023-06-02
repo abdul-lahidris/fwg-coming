@@ -60,7 +60,10 @@
         video.addEventListener("loadedmetadata", () => {
             loader.style.display = "none"; // Hide the loader
             console.log("Video loaded");
-            if (currentSlide === 0) {
+            
+        });
+
+        if (currentSlide === 0) {
             // Check if video on the first slide has ended
                 // const video = document.querySelector(".slide video");
                 video.play();
@@ -81,8 +84,6 @@
                     }, currentSlide != 2 ? 5000 : 7000);
             });
         }
-        });
-
         
         function showSlide(index) {
             if (currentSlide >= slides.length) {
