@@ -56,12 +56,19 @@
         // Get video element and loader element
         const video = document.getElementById("fwg-vid");
         const loader = document.querySelector(".loader");
+        // Function to remove the "loadedmetadata" event listener
+        function removeLoadedMetadataListener() {
+            video.removeEventListener("loadedmetadata", handleVideoLoaded);
+        }
+
         // Show loader until the video is loaded
-        video.addEventListener("loadedmetadata", () => {
+        function handleVideoLoaded() {
             loader.style.display = "none"; // Hide the loader
             console.log("Video loaded");
-            
-        });
+            removeLoadedMetadataListener();
+        }
+
+        video.addEventListener("loadedmetadata", handleVideoLoaded);
 
         if (currentSlide === 0) {
             // Check if video on the first slide has ended
