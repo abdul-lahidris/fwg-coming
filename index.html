@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <footer style="text-align: center;">&copy;2023</footer>
+    <footer style="text-align: center;"><h3>&copy;2023</h3></footer>
 
 
     <script>
@@ -59,10 +59,10 @@
         // Show loader until the video is loaded
         video.addEventListener("loadedmetadata", () => {
             loader.style.display = "none"; // Hide the loader
-
+            console.log("Video loaded");
             if (currentSlide === 0) {
             // Check if video on the first slide has ended
-                const video = document.querySelector(".slide video");
+                // const video = document.querySelector(".slide video");
                 video.play();
                 console.log("video playing");
                 video.addEventListener("ended", () => {
@@ -78,7 +78,7 @@
                     if (currentSlide >= slides.length - 1) {
                         clearInterval(slideShow);
                     }
-                    }, 5000);
+                    }, currentSlide != 2 ? 5000 : 7000);
             });
         }
         });
@@ -90,22 +90,44 @@
             }
 
             // Hide all slides
-            for (let slide of slides) {
-                slide.classList.remove("fade");
-            }
+            // for (let slide of slides) {
+            //     slide.classList.remove("fade");
+            // }
 
-            // Show current slide
-            slides[currentSlide].classList.add("fade");
-            // Show text on third slide
-            if (currentSlide === 1) {
-                const lines = document.querySelectorAll(".text-container p");
-                lines.forEach((line, index) => {
-                setTimeout(() => {
-                    line.style.opacity = 1;
-                }, 1000 * (index + 1));
+            // // Show current slide
+            // slides[currentSlide].classList.add("fade");
+            // // Show text on third slide
+            // if (currentSlide === 1) {
+            //     const lines = document.querySelectorAll(".text-container p");
+            //     lines.forEach((line, index) => {
+            //     setTimeout(() => {
+            //         line.style.opacity = 1;
+            //     }, 1000 * (index + 1));
+            //     });
+            // }
+            const removePromises = Array.from(slides).map((slide) => {
+                    return new Promise((resolve) => {
+                        slide.classList.remove("fade");
+                        setTimeout(resolve, 700); // Adjust the timeout as needed
+                    });
+                });
+
+                // Wait for all slide removals to complete
+                Promise.all(removePromises).then(() => {
+                    // Show current slide
+                    slides[currentSlide].classList.add("fade");
+
+                    // Show text on third slide
+                    if (currentSlide === 1) {
+                        const lines = document.querySelectorAll(".text-container p");
+                        lines.forEach((line, index) => {
+                            setTimeout(() => {
+                                line.style.opacity = 1;
+                            }, 700 * (index + 1));
+                        });
+                    }
                 });
             }
-        }
 
         // Show first slide
         // showSlide(0);

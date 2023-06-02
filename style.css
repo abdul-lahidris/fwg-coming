@@ -133,13 +133,14 @@ a {
     padding: 25px 30px;
     /* margin: 40px 0; */
     color: var(--aqua);
+    font-weight: 300;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     transition: 0.5s;
     letter-spacing: 4px;
     overflow: hidden;
     /* margin-right: 50px; */
-
+    font-size: clamp(30px, 1rem, 40px);
 }
 
 a:hover {
