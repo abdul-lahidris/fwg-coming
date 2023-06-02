@@ -7,9 +7,10 @@
 </head>
 
 <body>
+    <div class="loader"></div>
     <div class="slideshow-container">
         <div class="slide fade">
-            <video muted>
+            <video muted id="fwg-vid">
                 <source src="Fawgiri Logo Animation - Black Bg.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -52,8 +53,14 @@
         slides[currentSlide].classList.add("fade");
 
         console.log("Current slide", currentSlide);
+        // Get video element and loader element
+        const video = document.getElementById("fwg-vid");
+        const loader = document.querySelector(".loader");
+        // Show loader until the video is loaded
+        video.addEventListener("loadedmetadata", () => {
+            loader.style.display = "none"; // Hide the loader
 
-        if (currentSlide === 0) {
+            if (currentSlide === 0) {
             // Check if video on the first slide has ended
                 const video = document.querySelector(".slide video");
                 video.play();
@@ -74,6 +81,9 @@
                     }, 5000);
             });
         }
+        });
+
+        
         function showSlide(index) {
             if (currentSlide >= slides.length) {
                 return;
