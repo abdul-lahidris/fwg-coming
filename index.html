@@ -4,14 +4,15 @@
     <title>FAWGIRI: Coming soon...</title>
     <link rel="icon" href="np_Fawgiri Mark(AquaBlue).png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div class="loader"></div>
+    <!-- <div class="loader"></div> -->
     <div class="slideshow-container">
         <div class="slide fade">
             <video muted id="fwg-vid">
-                <source src="Fawgiri Logo Animation - Black Bg.mp4" type="video/mp4">
+                <source src="compressed_Fawgiri Logo Animation - Black Bg.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -55,28 +56,28 @@
         console.log("Current slide", currentSlide);
         // Get video element and loader element
         const video = document.getElementById("fwg-vid");
-        const loader = document.querySelector(".loader");
+        // const loader = document.querySelector(".loader");
         // Function to remove the "loadedmetadata" event listener
-        function removeLoadedMetadataListener() {
-            video.removeEventListener("loadedmetadata", handleVideoLoaded);
-        }
+        // function removeLoadedMetadataListener() {
+        //     video.removeEventListener("loadedmetadata", handleVideoLoaded);
+        // }
 
-        // Show loader until the video is loaded
-        function handleVideoLoaded() {
-            loader.style.display = "none"; // Hide the loader
-            console.log("Video loaded");
-            removeLoadedMetadataListener();
-        }
+        // // Show loader until the video is loaded
+        // function handleVideoLoaded() {
+        //     loader.style.display = "none"; // Hide the loader
+        //     console.log("Video loaded");
+        //     removeLoadedMetadataListener();
+        // }
 
-        video.addEventListener("loadedmetadata", handleVideoLoaded);
+        // video.addEventListener("loadedmetadata", handleVideoLoaded);
 
         if (currentSlide === 0) {
             // Check if video on the first slide has ended
                 // const video = document.querySelector(".slide video");
                 video.play();
-                console.log("video playing");
+                // console.log("video playing");
                 video.addEventListener("ended", () => {
-                    console.log("video ended");
+                    // console.log("video ended");
                     currentSlide++;
                     //start show
                     showSlide(currentSlide)
