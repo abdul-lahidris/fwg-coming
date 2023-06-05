@@ -18,7 +18,7 @@
     }
     .slideshow-container {
         position: relative;
-        height: 90vh;
+        height: 85vh;
         overflow: hidden;
     }
 
@@ -65,7 +65,7 @@
     }
     @media screen and (max-width: 1000px) {
         .text-container{
-            /* line-height: 1rem; */
+            line-height: 0.3rem;
             padding-top: 0px;
         }
      }
@@ -91,6 +91,12 @@
         /* animation: fade-in 1s forwards; */
         margin-left: 1em;
     }
+    @media screen and (max-width: 1000px) {
+        .text-container p{
+            /* line-height: 1rem; */
+            font-size: clamp(10px, 7vw, 200px);
+        }
+     }
 
     .coming-soon{
         font-size: clamp(30px, 5vw, 70px);
